@@ -7,34 +7,18 @@ import { ISACTIVE } from "../../config/constants.js";
 
 const router = Router();
 
-export default router.get("/", authenticate, async (req, res) => {
+export default router.get("/:id", authenticate, async (req, res) => {
   try {
-    const page = req.query.page ? parseInt(req.query.page) : 1;
-    const limit = req.query.limit ? parseInt(req.query.limit) : 10;
-
     const taskModel = await inittaskModel();
 
-    let { task_id, status, priority, sortBy } = req.query;
+    let task_id = req.params.id;
 
-    let query = {
-      user_id: req.user.id,
-      isactive: ISACTIVE.ACTIVE,
-    };
-
-    let order = [];
-
-    task_id ? (query.task_id = task_id) : ""; //single task
-
-    status ? (query.status = status) : "";
-
-    priority ? (query.priority = priority) : "";
-
-    sortBy == 1
-      ? order.push(["priority", "ASC"])
-      : order.push(["createdAt", "DESC"]);
-
-    let taskData = await taskModel.findAll({
-      where: query,
+    let taskData = await taskModel.findOne({
+      where: {
+        task_id,
+        user_id: req.user.id,
+        isactive: ISACTIVE.ACTIVE,
+      },
       attributes: [
         "task_id",
         "title",
@@ -43,12 +27,9 @@ export default router.get("/", authenticate, async (req, res) => {
         "status",
         "createdAt",
       ],
-      order: order,
-      offset: (page - 1) * limit,
-      limit: limit,
     });
 
-    if (taskData.length == 0) {
+    if (!taskData) {
       return send(res, setErrResMsg(RESPONSE.NOT_FOUND, "Tasks"));
     }
 
