@@ -44,7 +44,7 @@ const inittaskModel = async () => {
       as: "taskInfo",
       onDelete: "cascade",
       foreignKey: {
-        allowNull: fasle,
+        allowNull: false,
         name: "user_id",
       },
       targetKey: "user_id",
