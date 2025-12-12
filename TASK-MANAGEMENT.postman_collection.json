@@ -1,0 +1,429 @@
+{
+	"info": {
+		"_postman_id": "5557cc31-d8ab-4146-90ae-f145feb16163",
+		"name": "TASK-MANAGEMENT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39378460",
+		"_collection_link": "https://team-qwerty-6865.postman.co/workspace/task-management~f13ee556-9fa1-468f-9a13-87457e358192/collection/39378460-5557cc31-d8ab-4146-90ae-f145feb16163?action=share&source=collection_link&creator=39378460"
+	},
+	"item": [
+		{
+			"name": "AUTH",
+			"item": [
+				{
+					"name": "REGISTER",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "oggy",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "oggy@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Qwerty@123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://task-management-apis-v2ig.onrender.com/api/users/register",
+							"protocol": "https",
+							"host": [
+								"task-management-apis-v2ig",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LOGIN",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "oggy@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Qwerty@123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://task-management-apis-v2ig.onrender.com/api/users/login",
+							"protocol": "https",
+							"host": [
+								"task-management-apis-v2ig",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MNG-TASK",
+			"item": [
+				{
+					"name": "CREATE-TASK",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImEyZDdmM2VkLTlmNGUtNDY0OC1hODA4LTRkMTI4NzRiNWQyOCIsImlhdCI6MTc2NTQxOTQ0NX0.wtE6u6eD7YCBSQv5VdqnMgHp7Qm0Sofmkd9hrmpgnW0",
+								"description": "LOCAL",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4ZjIxZDM0LThhMTctNDMzYS04ODU1LTE2ZjMyZWI0MmJkMyIsImlhdCI6MTc2NTQzOTkwM30.q1al8h20HCMyu2jfD6cCYyulXIgAersMeMRrCXWUpnA",
+								"description": "DESK",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5ZDAyNmU3LTRmNWItNDEzZC04NzU4LWRmZmRiZTliM2E0ZSIsImlhdCI6MTc2NTUwMjc2MH0.epRogqwO90zgU3-kxGhXa6e2oK8leYsW1E66-wCBhyU",
+								"description": "LIVE OGGY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "XYZ",
+									"type": "text"
+								},
+								{
+									"key": "priority",
+									"value": "3",
+									"description": " LOW: \"1\",  MEDIUM: \"2\",  HIGH: \"3\",",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Wash it properly",
+									"description": "optional",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "https://task-management-apis-v2ig.onrender.com/api/tasks/create",
+							"protocol": "https",
+							"host": [
+								"task-management-apis-v2ig",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LIST-TASKS",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4ZjIxZDM0LThhMTctNDMzYS04ODU1LTE2ZjMyZWI0MmJkMyIsImlhdCI6MTc2NTQzOTkwM30.q1al8h20HCMyu2jfD6cCYyulXIgAersMeMRrCXWUpnA",
+								"description": "DESK",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5ZDAyNmU3LTRmNWItNDEzZC04NzU4LWRmZmRiZTliM2E0ZSIsImlhdCI6MTc2NTUwMjc2MH0.epRogqwO90zgU3-kxGhXa6e2oK8leYsW1E66-wCBhyU",
+								"description": "LIVE OGGY",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "xyz",
+									"type": "text"
+								},
+								{
+									"key": "priority",
+									"value": "1",
+									"description": " LOW: \"1\",  MEDIUM: \"2\",  HIGH: \"3\",",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "something",
+									"description": "optional",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://task-management-apis-v2ig.onrender.com/api/tasks/list",
+							"protocol": "https",
+							"host": [
+								"task-management-apis-v2ig",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"list"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "2",
+									"description": " PENDING: \"1\",  IN_PROGRESS: \"2\",  DONE: \"3\",",
+									"disabled": true
+								},
+								{
+									"key": "priority",
+									"value": "",
+									"description": "LOW: \"1\",  MEDIUM: \"2\",  HIGH: \"3\",",
+									"disabled": true
+								},
+								{
+									"key": "task_id",
+									"value": "",
+									"description": "To retrive single task",
+									"disabled": true
+								},
+								{
+									"key": "sortBy",
+									"value": "1",
+									"description": "default sort by icreatedAt, pass value 1 if sort by priority",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "default page 1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "1",
+									"description": "default limit 10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SINGLE-TASK",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4ZjIxZDM0LThhMTctNDMzYS04ODU1LTE2ZjMyZWI0MmJkMyIsImlhdCI6MTc2NTQzOTkwM30.q1al8h20HCMyu2jfD6cCYyulXIgAersMeMRrCXWUpnA",
+								"description": "DESK",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5ZDAyNmU3LTRmNWItNDEzZC04NzU4LWRmZmRiZTliM2E0ZSIsImlhdCI6MTc2NTUwMjc2MH0.epRogqwO90zgU3-kxGhXa6e2oK8leYsW1E66-wCBhyU",
+								"description": "LIVE OGGY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "xyz",
+									"type": "text"
+								},
+								{
+									"key": "priority",
+									"value": "1",
+									"description": " LOW: \"1\",  MEDIUM: \"2\",  HIGH: \"3\",",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "something",
+									"description": "optional",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://task-management-apis-v2ig.onrender.com/api/tasks/single/7bec0c83-b2f4-47b2-9665-d9f1da7687b9",
+							"protocol": "https",
+							"host": [
+								"task-management-apis-v2ig",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"single",
+								"7bec0c83-b2f4-47b2-9665-d9f1da7687b9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE-TASK",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4ZjIxZDM0LThhMTctNDMzYS04ODU1LTE2ZjMyZWI0MmJkMyIsImlhdCI6MTc2NTQzOTkwM30.q1al8h20HCMyu2jfD6cCYyulXIgAersMeMRrCXWUpnA",
+								"description": "DESK",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "task_id",
+									"value": "153fd59c-3e67-4aaa-8708-5575751432d8",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "Read Book",
+									"type": "text"
+								},
+								{
+									"key": "priority",
+									"value": "3",
+									"description": " LOW: \"1\",  MEDIUM: \"2\",  HIGH: \"3\",",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Read chapter 9",
+									"description": "optional",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "2",
+									"description": "PENDING: \"1\",  IN_PROGRESS: \"2\",  DONE: \"3\",",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://task-management-apis-v2ig.onrender.com/api/tasks/update",
+							"protocol": "https",
+							"host": [
+								"task-management-apis-v2ig",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE-TASK",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4ZjIxZDM0LThhMTctNDMzYS04ODU1LTE2ZjMyZWI0MmJkMyIsImlhdCI6MTc2NTQzOTkwM30.q1al8h20HCMyu2jfD6cCYyulXIgAersMeMRrCXWUpnA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://task-management-apis-v2ig.onrender.com/api/tasks/delete?task_id=57b277de-f8be-4483-a90f-97c114384295",
+							"protocol": "https",
+							"host": [
+								"task-management-apis-v2ig",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "task_id",
+									"value": "57b277de-f8be-4483-a90f-97c114384295"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
